@@ -2,7 +2,7 @@
 
 Clean up Elixir terms.
 
-By default it cleans strings (or any string values found inside (maps, lists, keyword lists) by trimming ends, replacing double+ spaces, removing null-bytes; useful when working with user input.
+By default it cleans strings (or any string values found inside maps, lists, keyword lists) by trimming ends, replacing double+ spaces, removing null-bytes; useful when working with user input.
 
 
 ### Installation
