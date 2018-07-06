@@ -9,6 +9,7 @@ defmodule Cleanex.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
+      docs: docs(),
       name: "Cleanex",
       description: "Clean up your Elixir terms",
       source_url: "https://github.com/walkr/cleanex"
@@ -19,14 +20,20 @@ defmodule Cleanex.MixProject do
   def application, do: []
 
   # Run "mix help deps" to learn about dependencies.
-  defp deps, do: []
+  defp deps do
+    [{:ex_doc, ">= 0.0.0", only: :dev}]
+  end
 
   defp package do
     [
       name: "cleanex",
       files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
-      license: "MIT License",
+      licenses: ["MIT License"],
       links: %{"GitHub" => "https://github.com/walkr/cleanex"}
     ]
+  end
+
+  defp docs do
+    [main: "README", extras: ["README.md": [title: "README"]]]
   end
 end
