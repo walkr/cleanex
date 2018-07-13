@@ -10,7 +10,7 @@ By default it cleans strings (or any string values found inside maps, lists, key
 ```elixir
 def deps do
   [
-    {:cleanex, git: "https://github.com/walkr/cleanex"}
+    {:lib_cleanex, "~> 0.1.0"}
   ]
 end
 ```

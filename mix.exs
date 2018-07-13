@@ -3,7 +3,7 @@ defmodule Cleanex.MixProject do
 
   def project do
     [
-      app: :cleanex,
+      app: :lib_cleanex,
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
@@ -12,7 +12,7 @@ defmodule Cleanex.MixProject do
       docs: docs(),
       name: "Cleanex",
       description: "Clean up your Elixir terms",
-      source_url: "https://github.com/walkr/cleanex"
+      source_url: "https://github.com/walkr/lib_cleanex"
     ]
   end
 
@@ -26,10 +26,10 @@ defmodule Cleanex.MixProject do
 
   defp package do
     [
-      name: "cleanex",
+      name: "lib_cleanex",
       files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
       licenses: ["MIT License"],
-      links: %{"GitHub" => "https://github.com/walkr/cleanex"}
+      links: %{"GitHub" => "https://github.com/walkr/lib_cleanex"}
     ]
   end
 
