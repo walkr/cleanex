@@ -10,13 +10,15 @@ By default it cleans strings (or any string values found inside maps, lists, key
 ```elixir
 def deps do
   [
-    {:lib_cleanex, "~> 0.1.0"}
+    {:lib_cleanex, "~> 0.2.0"}
   ]
 end
 ```
 
 
 ### Usage
+
+As function
 
 ```elixir
 iex> Cleanex.clean(" hello   world ")
@@ -26,6 +28,15 @@ iex> Cleanex.clean(%{greeting: "  hello   world  "})
 %{greeting: "hello world"}
 ```
 
+As plug for cleaning `conn.params`
+
+```elixir
+pipeline :api do
+  ...
+  plug Cleanex.Plug.CleanParams
+  ...
+end
+```
 
 ### Extend
 To extend just implement `Cleanex.Cleanable` protocol for your own types.
