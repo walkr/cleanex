@@ -1,6 +1,6 @@
 0.4.0 (September 24, 2019)
 ======================
-* Add plug option `[struct: true/false]`. (Default is `true`)
+* Add plug option `[strict: true/false]`. (Default is `true`)
   When set to false, inner whitespace won't be touched.
 
 0.3.0 (August 3, 2018)
