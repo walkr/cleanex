@@ -41,6 +41,11 @@ pipeline :api do
 end
 ```
 
+#### Plug Options
+
+`[strict: bool]` -- when `strict` is set to `false`, inner whitespace
+won't be touched (default `true`)
+
 
 ### Extend
 

@@ -46,6 +46,6 @@ defmodule CleanexTest do
   end
 
   test "any" do
-    assert Cleanex.Cleanable.Any.clean(nil) == nil
+    assert Cleanex.Cleanable.Any.clean(nil, []) == nil
   end
 end

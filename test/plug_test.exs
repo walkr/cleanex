@@ -19,10 +19,25 @@ defmodule Cleanex.TestPlug do
     plug :clean_me
   end
 
+  defmodule Pipeline2 do
+    use Plug.Builder
+    import TestPlug
+
+    plug Cleanex.Plugs.ParamsCleaner, strict: false
+    plug :clean_me
+  end
+
   test "cleaned params" do
-    data = %{"key" => " hello  \0  world "}
+    data = %{"key" => " hello  \0  world.\n\nNew line. "}
     c = conn(:post, "/clean-me", data) |> Pipeline.call([])
     assert c.status == 200
-    assert c.resp_body == "%{\"key\" => \"hello world\"}"
+    assert c.resp_body == "%{\"key\" => \"hello world. New line.\"}"
+  end
+
+  test "cleaned params strict = false" do
+    data = %{"key" => " hello  \0  world.\n\nNew line. "}
+    c = conn(:post, "/clean-me", data) |> Pipeline2.call([])
+    assert c.status == 200
+    assert c.resp_body == "%{\"key\" => \"hello    world.\\n\\nNew line.\"}"
   end
 end

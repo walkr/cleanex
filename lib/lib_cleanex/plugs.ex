@@ -10,10 +10,15 @@ defmodule Cleanex.Plugs.ParamsCleaner do
         ...
       end
 
+  ### Plug Options
+
+    `[strict: bool]` -- when `strict` is set to `false`, inner whitespace
+    won't be touched (default `true`)
+
   """
   def init(opts), do: opts
 
-  def call(conn, _) do
-    %{conn | params: Cleanex.clean(conn.params)}
+  def call(conn, opts) do
+    %{conn | params: Cleanex.clean(conn.params, opts)}
   end
 end
